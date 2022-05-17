@@ -1,0 +1,22 @@
+{
+  "name": "hybr1d-backend-assignment",
+  "version": "1.0.0",
+  "description": "hybr1d-backend-assignment",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sairajpawars/hybr1d-backend-assignment.git"
+  },
+  "author": "sairajpawar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sairajpawars/hybr1d-backend-assignment/issues"
+  },
+  "homepage": "https://github.com/sairajpawars/hybr1d-backend-assignment#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
