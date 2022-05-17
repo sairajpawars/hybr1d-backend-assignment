@@ -8,7 +8,7 @@ class CustomError extends Error {
 
     serializeErrors() {
         message,
-            field
+        field
     }
 }
 
