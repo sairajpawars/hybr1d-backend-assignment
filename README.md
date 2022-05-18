@@ -6,4 +6,5 @@ steps to install:
 2. make a .env file with the following fields
 CLOUD_DB=mongodburl
 JWT_SECRET=anysecret
+3. start app with "npm run start"
 
