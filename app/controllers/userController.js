@@ -5,6 +5,7 @@ const bcryptjs = require("bcryptjs");
 
 const InternalServerError = require("../errors/internal-server-error");
 const BadRequestError = require("../errors/bad-request-error");
+const InvalidCredentialError = require("../errors/invalid-cred-error");
 
 userController.register = async (req, res, next) => {
 
@@ -72,14 +73,14 @@ userController.login = async (req, res, next) => {
         })
 
         if (!user) {
-            next(new BadRequestError("Invalid Credentials"));
+            next(new InvalidCredentialError("Invalid Credentials"));
             return;
         }
 
         const passwordMatch = await bcryptjs.compare(password, user.password)
 
         if (!passwordMatch) {
-            next(new BadRequestError("Invalid Credentials"));
+            next(new InvalidCredentialError("Invalid Credentials"));
             return;
         }
 

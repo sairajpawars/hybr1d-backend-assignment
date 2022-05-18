@@ -1,6 +1,16 @@
 const express = require('express')
-const seller = express.Router()
+const router = express.Router()
+const sellerController = require('../app/controllers/sellerController')
+const { sellerAuth } = require('../app/middlewares/auth/sellerAuth')
+const { addCatalogFormCheck } = require('../app/middlewares/validators/catalog')
+const { runValidation } =  require('../app/middlewares/validators/runValidation')
 
 
 
-module.exports = seller;
+// @route   POST  /api/seller/create-catalog
+// @desc    Creates a catalog for a seller with a list of items
+// @access  seller    
+router.post('/create-catalog', sellerAuth, addCatalogFormCheck, runValidation, sellerController.createCatalog)
+
+
+module.exports = router;
