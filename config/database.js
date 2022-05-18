@@ -7,7 +7,7 @@ const configureDB = async () => {
             useNewUrlParser: true,
             useUnifiedTopology: true
         });
-        console.log(`connected to Mongodb...`)
+        console.log(`Connected to Mongodb...`)
     }catch(err){
         console.log(err.message);
         process.exit(1);
