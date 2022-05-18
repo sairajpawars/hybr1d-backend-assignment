@@ -14,11 +14,6 @@ const productSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User',
         index: true
-    },
-    catalogId: {
-        type: Schema.Types.ObjectId,
-        ref: 'Catalog',
-        index: true
     }
 }, {
     timestamps: true,

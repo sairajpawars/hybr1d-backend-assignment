@@ -53,4 +53,23 @@ sellerController.createCatalog = async (req, res, next) => {
     }
 
 }
+
+
+sellerController.getAllOrders = async (req, res, next) => {
+    const user = req.user;
+    try {
+        const orders = await Order.find({sellerId:user.id}).populate('products userId','userName')
+        return res.json({
+            ok: true,
+            message: "Catalog Added",
+            packet: {
+                orders
+            }
+        })
+    } catch (error) {
+        console.log(error.message)
+        next(new InternalServerError("Server not reachable"));
+    }
+
+}
 module.exports = sellerController;

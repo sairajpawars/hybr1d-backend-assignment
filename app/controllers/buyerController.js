@@ -47,4 +47,30 @@ buyerController.sellerCatalog = async (req, res, next) => {
         next(new InternalServerError("Server not reachable"));
     }
 }
+
+buyerController.createOrder = async (req, res, next) => {
+    const sellerId = req.params.seller_id;
+    let { productList } = req.body;
+    const user = req.user;
+    try {
+        const newOrder = new Order({
+            sellerId,
+            userId:user.id,
+            products:productList
+        })
+
+        newOrder.save()
+
+        return res.json({
+            ok: true,
+            message: "Order Added",
+            packet: {
+                newOrder
+            }
+        });
+    } catch (error) {
+        console.log(error.message)
+        next(new InternalServerError("Server not reachable"));
+    }
+}
 module.exports = buyerController;
